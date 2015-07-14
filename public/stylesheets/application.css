@@ -1,0 +1,7 @@
+body {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/7/7e/Machu_Picchu_early_morning.JPG") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

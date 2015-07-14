@@ -1,9 +1,22 @@
+# bundle exec tux -r ./config/environment.rb
+# shotgun -p 3000 -o 0.0.0.0
+
 require 'rake'
 require "sinatra/activerecord/rake"
 require ::File.expand_path('../config/environment', __FILE__)
 
 Rake::Task["db:create"].clear
 Rake::Task["db:drop"].clear
+
+desc "start console"
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require ::File.expand_path('../config/environment',  __FILE__)
+
+  ARGV.clear
+  IRB.start
+end
 
 # NOTE: Assumes SQLite3 DB
 desc "create the database"
