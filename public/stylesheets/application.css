@@ -5,3 +5,14 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+
+nav.navbar {
+  margin-top: 15px;
+}
+
+main {
+  background: rgba(255,255,255, 0.7);
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
