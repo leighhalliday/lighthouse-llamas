@@ -1,0 +1,13 @@
+<h1><%= @llama.name %></h1>
+<h3><%= @llama.age %> Years Old</h3>
+<p>Owned By <%= @llama.user.name %></p>
+
+<a href="/llamas/<%=@llama.id%>/garments/new" class="btn btn-primary">Create Garment</a>
+<br />
+
+<h3>Garments</h3>
+<ul>
+  <% @llama.garments.each do |garment| %>
+    <li><%= garment.name %> - <%= garment.description %></li>
+  <% end %>
+</ul>

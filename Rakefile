@@ -1,5 +1,5 @@
 # bundle exec tux -r ./config/environment.rb
-# shotgun -p 3000 -o 0.0.0.0
+# bundle exec shotgun -p 3000 -o 0.0.0.0
 
 require 'rake'
 require "sinatra/activerecord/rake"
