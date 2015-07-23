@@ -1,6 +1,15 @@
 <h1><%= @llama.name %></h1>
+<% if logged_in? && current_user == @llama.user %>
+  <a href="/llamas/<%= @llama.id %>/edit" class="btn btn-default">Edit</a>
+<% end %>
+
 <h3><%= @llama.age %> Years Old</h3>
-<p>Owned By <%= @llama.user.name %></p>
+
+<% if @llama.user %>
+  <p>Owned By <%= @llama.user.name %></p>
+<% else %>
+  <p>Somebody love this llama.</p>
+<% end %>
 
 <a href="/llamas/<%=@llama.id%>/garments/new" class="btn btn-primary">Create Garment</a>
 <br />

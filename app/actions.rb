@@ -89,6 +89,17 @@ get '/logout' do
   redirect '/'
 end
 
+get '/llamas' do
+  scope = Llama
+
+  if params[:search]
+    scope = scope.where(name: params[:search])
+  end
+
+  @llamas = scope.where("user_id is not null").order("age desc").all
+  erb :list_llamas
+end
+
 get '/llamas/new' do
   erb :new_llama
 end
@@ -111,6 +122,24 @@ end
 get '/llamas/:id' do
   @llama = Llama.find(params[:id])
   erb :show_llama
+end
+
+get '/llamas/:id/edit' do
+  @llama = Llama.find(params[:id])
+  erb :edit_llama
+end
+
+post '/llamas/:id/update' do
+  llama = Llama.find(params[:id])
+
+  llama.update_attributes({
+    name: params[:name],
+    age: params[:age],
+    quality: params[:quality],
+    gender: params[:gender]
+  })
+
+  redirect "/llamas/#{llama.id}"
 end
 
 get '/llamas/:llama_id/garments/new' do

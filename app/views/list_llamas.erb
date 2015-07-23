@@ -1,0 +1,16 @@
+<h1>Exploring the Llamas</h1>
+
+<form action="/llamas" method="GET">
+  <input type="text" name="search" placeholder="Search llama by name">
+  <input type="submit" value="Search">
+</form>
+
+<div class="row">
+  <% @llamas.each do |llama| %>
+    <div class="col-md-3 col-sm-4">
+      <h2><%= llama.name %></h2>
+      <p><%= llama.age %> years old.</p>
+      <a href="/llamas/<%= llama.id %>" class="btn btn-default">View More</a>
+    </div>
+  <% end %>
+</div>
